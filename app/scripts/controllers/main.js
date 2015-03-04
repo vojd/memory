@@ -8,10 +8,36 @@
  * Controller of the klasskrigApp
  */
 angular.module('klasskrigApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('MainCtrl', function ($scope, $location, $anchorScroll) {
+        $scope.neolib = {
+            expanded : false,
+            tag : "neolib"
+        };
+
+        $scope.extremism = {
+            expanded : false,
+            tag : "extremism"
+        };
+
+        $scope.intro = {
+            expanded : false,
+            tag : "intro"
+        };
+
+        $scope.aaa = {
+            expanded : false,
+            tag : "aaa"
+        };
+
+        $scope.dict = {
+            expanded : false,
+            tag : "dict"
+        };
+
+        $scope.scrollTo = function(dest) {
+            dest.expanded = true;
+            $location.hash(dest.tag);
+            $anchorScroll();
+        };
+
+    });

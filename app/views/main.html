@@ -1,9 +1,9 @@
-<h1 class="text-center">Klasskampskompassen</h1>
+<h1 class="text-center text-danger" style="margin-top: 18pt;">Klasskampskompassen</h1>
 
-<div class="row lead text-center">
-  <span class="glyphicon glyphicon-star" style="top: 3px;"></span>
-  <span class="glyphicon glyphicon-star" style="top: 3px;"></span>
-  <span class="glyphicon glyphicon-star" style="top: 3px;"></span>
+<div class="row lead text-center" style="margin-bottom: 20pt;">
+  <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
+  <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
+  <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
   <br/>
   <br/>
 
@@ -36,44 +36,125 @@
     </p>
 
     <ul class="list-unstyled">
-      <li><a href="">Den nyliberala miljön</a></li>
-      <li><a href="">Några borgarextremister</a></li>
-      <li><a href="">Vägen in; entreprenörskap</a></li>
-      <hr/>
-      <li><a href="">Om Allt åt alla</a></li>
-      <li><a href="">Revolutionär ordlista</a></li>
+      <li><a ng-click="scrollTo(neolib);">
+          Den nyliberala miljön
+      </a></li>
+      <li><a ng-click="scrollTo(extremism);">
+          Några borgarextremister
+      </a></li>
+      <li><a ng-click="scrollTo(intro);">
+          Vägen in; entreprenörskap
+      </a></li>
+    </ul>
+    <br/>
+    <ul class="list-unstyled">
+      <li><a ng-click="scrollTo(aaa);">
+          Om Allt åt alla
+      </a></li>
+      <li><a ng-click="scrollTo(dict);">
+          Revolutionär ordlista
+      </a></li>
     </ul>
 
   </div>
 </div>
-<h3>Den nyliberala miljön</h3>
-<p>
+
+<div class="row lead text-center" >
+  <hr/>
+  <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
+  <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
+  <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
+  <hr/>
+</div>
+
+<div id="{{neolib.tag}}"></div>
+<p ng-click="neolib.expanded = !neolib.expanded">
+  <span class="glyphicon"
+        ng-class="{'glyphicon-chevron-down': !neolib.expanded, 'glyphicon-chevron-right': neolib.expanded}"
+        style="top: -1px;">
+  </span>
+  &nbsp;
+  <span class="h3">Den nyliberala miljön</span>
+</p>
+<p ng-show="neolib.expanded">
   Bla, bla bla... lorem ipsum, etc..
 </p>
 
-<h3>Borgarextremister</h3>
-<p>
+<hr/>
+
+<div id="{{extremism.tag}}"></div>
+<p ng-click="extremism.expanded = !extremism.expanded">
+  <span class="glyphicon"
+        ng-class="{'glyphicon-chevron-down': !extremism.expanded, 'glyphicon-chevron-right': extremism.expanded}"
+        style="top: -1px;">
+  </span>
+  &nbsp;
+  <span class="h3">
+    Borgarextremism
+  </span>
+</p>
+<p ng-show="extremism.expanded">
   Bla, bla bla... lorem ipsum, etc..
 </p>
 
-<h3>Vägen in i den borgliga miljön</h3>
-<p>
+<hr/>
+
+<div id="{{intro.tag}}"></div>
+<p ng-click="intro.expanded = !intro.expanded">
+  <span class="glyphicon"
+        ng-class="{'glyphicon-chevron-down': !intro.expanded, 'glyphicon-chevron-right': intro.expanded}"
+        style="top: -1px;">
+  </span>
+  &nbsp;
+  <span class="h3">
+    Vägen in i den borgliga miljön
+  </span>
+</p>
+<p ng-show="intro.expanded">
   Entreprenörskap, konsumism, chefskariär...
 </p>
 
-<h3>Om Allt åt alla</h3>
-<p>
+<hr/>
+
+<div id="aaa"></div>
+<p ng-click="aaa.expanded = !aaa.expanded">
+  <span class="glyphicon"
+        ng-class="{'glyphicon-chevron-down': !aaa.expanded, 'glyphicon-chevron-right': aaa.expanded}"
+        style="top: -1px;">
+  </span>
+  &nbsp;
+  <span class="h3">
+    Om Allt åt alla
+  </span>
+</p>
+<p ng-show="aaa.expanded">
   Platform, praktik, länkar
 </p>
 
-<h3>Revolutionär Ordlista</h3>
-<dl class="dl-horizontal">
-  <dt>Revolutionär</dt>
-  <dd>lorem ipsum, fubar, tralalalla mer om ordet</dd>
-  <dt>Våldsbejakande</dt>
-  <dd>politiskt motiverat nyspråk som används av staten mot
-  revolutionära rörelser i repressivt syfte. Har inget med våld att
-    göra.</dd>
-  <dt>Militans</dt>
-  <dd>lorem ipsum, fubar, tralalalla mer om ordet</dd>
-</dl>
+<hr/>
+
+<div id="dict"></div>
+<p ng-click="dict.expanded = !dict.expanded">
+  <span class="glyphicon"
+        ng-class="{'glyphicon-chevron-down': !dict.expanded, 'glyphicon-chevron-right': dict.expanded}"
+        style="top: -1px;">
+  </span>
+  &nbsp;
+  <span class="h3">
+    Revolutionär Ordlista
+  </span>
+</p>
+<div ng-show="dict.expanded">
+  <dl class="dl-horizontal">
+    <dt>Revolutionär</dt>
+    <dd>lorem ipsum, fubar, tralalalla mer om ordet</dd>
+    <dt>Våldsbejakande</dt>
+    <dd>
+      Politiskt motiverat nyspråk som används av staten mot
+      revolutionära rörelser i repressivt syfte. Har inget med våld att
+      göra.
+    </dd>
+    <dt>Militans</dt>
+    <dd>lorem ipsum, fubar, tralalalla mer om ordet</dd>
+  </dl>
+</div>
