@@ -9,35 +9,61 @@
  */
 angular.module('klasskrigApp')
     .controller('MainCtrl', function ($scope, $location, $anchorScroll) {
-        $scope.neolib = {
-            expanded : false,
-            tag : "neolib"
+
+        var bg_img = "images/aaa.png";
+
+        var lamanoSpec = function() {
+            return {
+                id: 1,
+                large_img: "images/lamano.jpg",
+                small_img: "images/lamano_small.jpg"
+            };
         };
 
-        $scope.extremism = {
-            expanded : false,
-            tag : "extremism"
+        var ypjSpec = function() {
+            return {
+                id: 2,
+                large_img: "images/ypj.jpg",
+                small_img: "images/ypj_small.jpg"
+            };
         };
 
-        $scope.intro = {
-            expanded : false,
-            tag : "intro"
+        var kartorpSpec = function() {
+            return {
+                id: 3,
+                large_img: "images/sthlmantifa.jpg",
+                small_img: "images/sthlmantifa_small.jpg"
+            };
         };
 
-        $scope.aaa = {
-            expanded : false,
-            tag : "aaa"
+        var limhamnSpec = function() {
+            return {
+                id: 4,
+                large_img: "images/limhamn.jpg",
+                small_img: "images/limhamn_small.jpg"
+            };
         };
 
-        $scope.dict = {
-            expanded : false,
-            tag : "dict"
+        $scope.flip = function(card) {
+            card.flipped = !card.flipped;
+            if (card.flipped)
+                card.img = card.small_img;
+            else
+                card.img = bg_img;
         };
 
-        $scope.scrollTo = function(dest) {
-            dest.expanded = true;
-            $location.hash(dest.tag);
-            $anchorScroll();
+        var makeCard = function(cardSpec) {
+            var card = _.merge(cardSpec, {
+                img: bg_img,
+                flipped: false
+            });
+            return card;
         };
 
+        $scope.allCards = [makeCard(lamanoSpec()), makeCard(lamanoSpec()),
+                           makeCard(limhamnSpec()), makeCard(limhamnSpec()),
+                           makeCard(kartorpSpec()), makeCard(kartorpSpec()),
+                           makeCard(ypjSpec()), makeCard(ypjSpec())];
+
+        $scope.cards = _.chunk(_.shuffle($scope.allCards), 4);
     });
