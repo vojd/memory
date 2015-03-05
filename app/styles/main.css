@@ -9,6 +9,25 @@ body {
   padding: 0;
 }
 
+.card {
+    display: relative;
+}
+
+.card .glyphicon {
+    font-size: x-large;
+    position: absolute;
+    top: 85%;
+    left: 70%;
+}
+
+.sel-border {
+    box-shadow: 0px 0px 2px 4px  #4ed;
+}
+
+.match-border {
+    box-shadow: 0px 0px 2px 4px #1b1;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

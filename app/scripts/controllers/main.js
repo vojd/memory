@@ -44,21 +44,61 @@ angular.module('klasskrigApp')
             };
         };
 
-        $scope.flip = function(card) {
-            card.flipped = !card.flipped;
+        var makeCard = function(cardSpec) {
+            var card = _.merge(cardSpec, {
+                img: bg_img,
+                matched: false,
+                flipped: false
+            });
+            return card;
+        };
+
+        var updateImage = function(card) {
             if (card.flipped)
                 card.img = card.small_img;
             else
                 card.img = bg_img;
         };
 
-        var makeCard = function(cardSpec) {
-            var card = _.merge(cardSpec, {
-                img: bg_img,
-                flipped: false
-            });
-            return card;
+        $scope.firstPick = null;
+
+        $scope.pick = function(card) {
+            if (card.flipped)
+                return; // Allready picked
+
+            card.flipped = true;
+
+            // First of a pair, just pick it
+            if ($scope.firstPick === null) {
+                $scope.firstPick = card;
+
+                updateImage(card);
+            }
+            else { // Second pick, is a match?
+
+                if ($scope.firstPick.id === card.id) {
+                    $scope.firstPick.matched = true;
+                    card.matched = true;
+
+                    updateImage(card);
+                    updateImage($scope.firstPick);
+                }
+                else {
+                    $scope.firstPick.flipped = false;
+                    updateImage(card);
+                    updateImage($scope.firstPick);
+
+                    card.flipped = false;
+                }
+
+                $scope.firstPick = null;
+            }
+
+
+
+            updateImage(card);
         };
+
 
         $scope.allCards = [makeCard(lamanoSpec()), makeCard(lamanoSpec()),
                            makeCard(limhamnSpec()), makeCard(limhamnSpec()),
@@ -66,4 +106,6 @@ angular.module('klasskrigApp')
                            makeCard(ypjSpec()), makeCard(ypjSpec())];
 
         $scope.cards = _.chunk(_.shuffle($scope.allCards), 4);
+
+
     });
