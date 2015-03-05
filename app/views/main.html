@@ -14,6 +14,22 @@
   Testa vårt spel och se om det finns något politiskt våld som du tycker är ok.
 </div>
 
+<div ng-show="selected"
+     class="col-xs-12 img-rounded"
+     style="border: 2px solid gray;">
+  <h2>{{selected.title}}
+    <a href="" ng-click="selected = null;"
+       class="pull-right glyphicon glyphicon-remove"
+       style="font-size: large; text-decoration: none;">
+    </a>
+  </h2>
+  <hr style="margin-top: 5pt;" />
+  <p>{{selected.text}}</p>
+
+  <br />
+</div>
+
+
 <div class="row" ng-repeat="row in cards">
   <div class="col-xs-3 card" ng-repeat="card in row">
     <a href="" ng-click="pick(card)">
@@ -22,10 +38,5 @@
            ng-src="{{card.img}}"
            style="margin-top: 15pt;"></img>
     </a>
-    <span ng-show="card.matched"
-          class="glyphicon glyphicon-question-sign"
-          style="color: #0a0;"></span>
   </div>
 </div>
-
-<br />
