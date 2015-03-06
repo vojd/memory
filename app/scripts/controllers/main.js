@@ -10,7 +10,7 @@
 angular.module('klasskrigApp')
     .controller('MainCtrl', function ($scope, $location, $anchorScroll) {
 
-        var bg_img = "images/aaa.png";
+        $scope.bg_img = "images/aaa.png";
 
         var lamanoSpec = function() {
             return {
@@ -54,26 +54,29 @@ angular.module('klasskrigApp')
 
         var makeCard = function(cardSpec) {
             var card = _.merge(cardSpec, {
-                img: bg_img,
+//                img: bg_img,
                 matched: false,
                 flipped: false
             });
             return card;
         };
 
-        var updateImage = function(card) {
-            if (card.flipped)
-                card.img = card.small_img;
-            else
-                card.img = bg_img;
-        };
+        // var updateImage = function(card) {
+        //     if (card.flipped)
+        //         card.img = card.small_img;
+        //     else
+        //         card.img = bg_img;
+        // };
 
         $scope.firstPick = null;
         $scope.selected = null;
 
         $scope.pick = function(card) {
             if (card.flipped) {
-                $scope.selected = card;
+                if ($scope.selected && $scope.selected.id === card.id)
+                    $scope.selected = null;
+                else
+                    $scope.selected = card;
                 return; // Allready picked
             }
 
@@ -84,7 +87,7 @@ angular.module('klasskrigApp')
                 $scope.firstPick = card;
                 $scope.selected = card;
 
-                updateImage(card);
+                //updateImage(card);
             }
             else { // Second pick, is a match?
 
@@ -94,13 +97,13 @@ angular.module('klasskrigApp')
 
                     $scope.selected = card;
 
-                    updateImage(card);
-                    updateImage($scope.firstPick);
+                    //updateImage(card);
+                    //updateImage($scope.firstPick);
                 }
                 else {
                     $scope.firstPick.flipped = false;
-                    updateImage(card);
-                    updateImage($scope.firstPick);
+                    //updateImage(card);
+                    //updateImage($scope.firstPick);
 
                     $scope.selected = null;
 
@@ -112,7 +115,7 @@ angular.module('klasskrigApp')
 
 
 
-            updateImage(card);
+            //updateImage(card);
         };
 
 

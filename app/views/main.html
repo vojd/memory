@@ -15,12 +15,12 @@
 </div>
 
 <div ng-show="selected"
-     class="col-xs-12 img-rounded"
+     class="col-xs-12 img-rounded animate-show"
      style="border: 2px solid gray;">
-  <h2>{{selected.title}}
+  <h2 style="margin-top: 5px;">{{selected.title}}
     <a href="" ng-click="selected = null;"
        class="pull-right glyphicon glyphicon-remove"
-       style="font-size: large; text-decoration: none;">
+       style="font-size: large; text-decoration: none; margin-top: 2pt;">
     </a>
   </h2>
   <hr style="margin-top: 5pt;" />
@@ -33,9 +33,15 @@
 <div class="row" ng-repeat="row in cards">
   <div class="col-xs-3 card" ng-repeat="card in row">
     <a href="" ng-click="pick(card)">
-      <img class="img-responsive img-rounded"
+      <img ng-show="card.flipped"
+           class="img-responsive img-rounded"
            ng-class="{'sel-border': card === firstPick, 'match-border': card.matched}"
-           ng-src="{{card.img}}"
+           ng-src="{{card.small_img}}"
+           style="margin-top: 15pt;"></img>
+      <img ng-hide="card.flipped"
+           class="img-responsive img-rounded"
+           ng-class="{'sel-border': card === firstPick, 'match-border': card.matched}"
+           ng-src="{{bg_img}}"
            style="margin-top: 15pt;"></img>
     </a>
   </div>
