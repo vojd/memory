@@ -7,7 +7,7 @@
 </div>
 
 <div class="row lead text-center">
-  Friska upp minnet med politiskt våld vi minns; ett spel från Allt åt alla.
+  Politiskt våld vi minns; ett spel från Allt åt alla.
 </div>
 
 <div class="row" ng-repeat="row in cards">
@@ -32,8 +32,15 @@
 
 <dic class="row">
   <div class="col-xs-12 img-rounded info-box">
-    <h2 style="margin-top: 5px;">{{infobox.title}}</h2>
+    <h2 style="margin-top: 10pt;">
+      {{infobox.title}}
+      <span class="pull-right glyphicon"
+            ng-class="{'glyphicon-thumbs-down': infobox.bad, 'glyphicon-thumbs-up': !infobox.bad}"
+            style="font-size: large; margin-top: 6pt;"
+            ng-style="infobox.bad ? {color: 'red'} : {color: 'green'}">
+      </span>
+    </h2>
     <hr style="margin-top: 5pt;" />
-    <p>{{infobox.text}}</p>
+    <p style="white-space: pre-wrap;">{{infobox.text}}</p>
   </div>
 </div>

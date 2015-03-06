@@ -13,10 +13,11 @@ angular.module('klasskrigApp')
         $scope.bg_img = "images/aaa.png";
 
         var default_infobox = {
-            title: "Allt åt alla",
-            text: "Förbundet Allt åt alla är en revolutionär organisation. " +
-                "Vi bejakar inte våld som politiskt medel; men vi tar inte heller " +
-                "kategoriskt avstånd från det."
+            bad: false,
+            title: "Förbundet Allt åt Alla",
+            text: "Vi är en revolutionär organisation med målsättning att skapa ett samhälle organiserat efter principen: av var och en efter förmåga, åt var och en efter behov. Vi välkomnar en mångfald av taktiker, strategier liksom organisationer och nätverk i kampen för klassamhällets avskaffande."+
+                "\n\n" +
+                "Allt åt alla bejakar inte våld. Våra aktioner är ibland militanta och konfrontativa, men det inte samma sak. Vi tar inte heller kategoriskt avstånd från alla politiska grupper som använder våld."
         };
 
         $scope.infobox = default_infobox;
@@ -24,8 +25,11 @@ angular.module('klasskrigApp')
         var lamanoSpec = function() {
             return {
                 id: 1,
-                title: "La Mano",
-                text: "Frivilliga åker till Spanien för att kämpa mot Franco.",
+                bad: false,
+                title: "Spanienfrivilliga",
+                text: "Under spanska inbördeskriget (1936-1939) åker hundratals komunister och anarkister från Sverige till Spanien för att kämpa mot Franco och fascisterna. Många offrar sina liv. På Katarinavägen i Stockholm står 'La Mano', ett monument för att hedra deras minne."+
+                    "\n\n"+
+                    "Vi inspireras av dessa antifascisters mod och solidaritet med det Spanska folket. Antifascism är självförsvar och detta var nödvändigt politiskt våld. Vad tror du hade hänt om facisterna inte besegrats?",
                 large_img: "images/lamano.jpg",
                 small_img: "images/lamano_small.jpg"
             };
@@ -34,6 +38,7 @@ angular.module('klasskrigApp')
         var ypjSpec = function() {
             return {
                 id: 2,
+                bad: false,
                 title: "YPG & YPJ",
                 text: "Kurder kämpar mot IS",
                 large_img: "images/ypj.jpg",
@@ -44,6 +49,7 @@ angular.module('klasskrigApp')
         var kartorpSpec = function() {
             return {
                 id: 3,
+                bad: false,
                 title: "Kärrtorpsattacken",
                 text: "Antifascister försvarar sig mot nazister som går till angrepp",
                 large_img: "images/sthlmantifa.jpg",
@@ -54,6 +60,7 @@ angular.module('klasskrigApp')
         var limhamnSpec = function() {
             return {
                 id: 4,
+                bad: true,
                 title: "Polisen i Limhamn",
                 text: "Statens politiska våld. Skyddar nazister angriper antifascister.",
                 large_img: "images/limhamn.jpg",
