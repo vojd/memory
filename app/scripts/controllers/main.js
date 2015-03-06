@@ -12,6 +12,15 @@ angular.module('klasskrigApp')
 
         $scope.bg_img = "images/aaa.png";
 
+        var default_infobox = {
+            title: "Allt åt alla",
+            text: "Förbundet Allt åt alla är en revolutionär organisation. " +
+                "Vi bejakar inte våld som politiskt medel; men vi tar inte heller " +
+                "kategoriskt avstånd från det."
+        };
+
+        $scope.infobox = default_infobox;
+
         var lamanoSpec = function() {
             return {
                 id: 1,
@@ -61,14 +70,10 @@ angular.module('klasskrigApp')
         };
 
         $scope.firstPick = null;
-        $scope.selected = null;
-
         $scope.pick = function(card) {
             if (card.flipped) {
-                if ($scope.selected && $scope.selected.id === card.id)
-                    $scope.selected = null;
-                else
-                    $scope.selected = card;
+                $scope.selected = card;
+                $scope.infobox = card;
                 return; // Allready picked
             }
 
@@ -78,7 +83,7 @@ angular.module('klasskrigApp')
             if ($scope.firstPick === null) {
                 $scope.firstPick = card;
                 $scope.selected = card;
-
+                $scope.infobox = card;
             }
             else { // Second pick, is a match?
 
@@ -90,6 +95,7 @@ angular.module('klasskrigApp')
                     card.matched = true;
 
                     $scope.selected = card;
+                    $scope.infobox = card;
                     $scope.firstPick = null;
 
                 }
@@ -100,6 +106,7 @@ angular.module('klasskrigApp')
                         $scope.firstPick.flipped = false;
 
                         $scope.selected = null;
+                        $scope.infobox = default_infobox;
 
                         card.flipped = false;
 

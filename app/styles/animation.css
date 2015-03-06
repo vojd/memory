@@ -16,7 +16,8 @@
 }
 
 .flip-container, .front, .back {
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     width: 150px;
     height: 200px;
 }

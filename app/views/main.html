@@ -1,33 +1,10 @@
 <h1 class="text-center text-danger" style="margin-top: 18pt;">Extremistmemory</h1>
 
-<div class="row lead text-center" style="margin-bottom: 20pt;">
+<div class="row lead text-center">
   <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
   <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
   <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
-  <br/>
-  <br/>
-
-  Förbundet Allt åt alla är en revolutionär organisation. Vi bejakar
-  inte våld som politiskt medel; men vi tar inte heller kategoriskt
-  avstånd från det.
-  <br />
-  Testa vårt spel och se om det finns något politiskt våld som du tycker är ok.
 </div>
-
-<!-- <div ng-show="selected" -->
-<!--      class="col-xs-12 img-rounded animate-show" -->
-<!--      style="border: 2px solid gray;"> -->
-<!--   <h2 style="margin-top: 5px;">{{selected.title}} -->
-<!--     <a href="" ng-click="selected = null;" -->
-<!--        class="pull-right glyphicon glyphicon-remove" -->
-<!--        style="font-size: large; text-decoration: none; margin-top: 2pt;"> -->
-<!--     </a> -->
-<!--   </h2> -->
-<!--   <hr style="margin-top: 5pt;" /> -->
-<!--   <p>{{selected.text}}</p> -->
-
-<!--   <br /> -->
-<!-- </div> -->
 
 <div class="row" ng-repeat="row in cards">
   <div class="col-xs-3 card" ng-repeat="card in row">
@@ -45,5 +22,13 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<dic class="row">
+  <div class="col-xs-12 img-rounded info-box">
+    <h2 style="margin-top: 5px;">{{infobox.title}}</h2>
+    <hr style="margin-top: 5pt;" />
+    <p>{{infobox.text}}</p>
   </div>
 </div>
