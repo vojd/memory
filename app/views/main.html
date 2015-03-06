@@ -1,9 +1,13 @@
-<h1 class="text-center text-danger" style="margin-top: 18pt;">Extremistmemory</h1>
+<h1 class="text-center" style="margin-top: 18pt;"><b>Extremistmemory</b></h1>
 
 <div class="row lead text-center">
   <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
   <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
   <span class="glyphicon glyphicon-star text-danger" style="top: 3px;"></span>
+</div>
+
+<div class="row lead text-center">
+  Friska upp minnet med politiskt våld vi minns; ett spel från Allt åt alla.
 </div>
 
 <div class="row" ng-repeat="row in cards">
@@ -18,6 +22,7 @@
 
         <div class="back">
           <img class="img-responsive img-rounded"
+               ng-class="{'match-border': card.matched}"
                ng-src="{{card.small_img}}"></img>
         </div>
       </div>
