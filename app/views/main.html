@@ -36,13 +36,11 @@
       <div class="flipper" ng-click="pick(card)">
         <div class="front">
           <img class="img-responsive img-rounded"
-               ng-class="{'sel-border': card === firstPick, 'match-border': card.matched}"
                ng-src="{{bg_img}}"></img>
         </div>
 
         <div class="back">
           <img class="img-responsive img-rounded"
-               ng-class="{'sel-border': card === firstPick, 'match-border': card.matched}"
                ng-src="{{card.small_img}}"></img>
         </div>
       </div>

@@ -8,7 +8,7 @@
  * Controller of the klasskrigApp
  */
 angular.module('klasskrigApp')
-    .controller('MainCtrl', function ($scope, $location, $anchorScroll) {
+    .controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
 
         $scope.bg_img = "images/aaa.png";
 
@@ -90,16 +90,23 @@ angular.module('klasskrigApp')
                     card.matched = true;
 
                     $scope.selected = card;
+                    $scope.firstPick = null;
+
                 }
                 else { // Nope, no match
-                    $scope.firstPick.flipped = false;
 
-                    $scope.selected = null;
 
-                    card.flipped = false;
+                    $timeout(function() {
+                        $scope.firstPick.flipped = false;
+
+                        $scope.selected = null;
+
+                        card.flipped = false;
+
+                        $scope.firstPick = null;
+                     }, 1000);
+
                 }
-
-                $scope.firstPick = null;
             }
         };
 
