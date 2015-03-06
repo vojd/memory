@@ -54,19 +54,11 @@ angular.module('klasskrigApp')
 
         var makeCard = function(cardSpec) {
             var card = _.merge(cardSpec, {
-//                img: bg_img,
                 matched: false,
                 flipped: false
             });
             return card;
         };
-
-        // var updateImage = function(card) {
-        //     if (card.flipped)
-        //         card.img = card.small_img;
-        //     else
-        //         card.img = bg_img;
-        // };
 
         $scope.firstPick = null;
         $scope.selected = null;
@@ -87,23 +79,20 @@ angular.module('klasskrigApp')
                 $scope.firstPick = card;
                 $scope.selected = card;
 
-                //updateImage(card);
             }
             else { // Second pick, is a match?
 
+                // Yes, it's a match
                 if ($scope.firstPick.id === card.id) {
+
+
                     $scope.firstPick.matched = true;
                     card.matched = true;
 
                     $scope.selected = card;
-
-                    //updateImage(card);
-                    //updateImage($scope.firstPick);
                 }
-                else {
+                else { // Nope, no match
                     $scope.firstPick.flipped = false;
-                    //updateImage(card);
-                    //updateImage($scope.firstPick);
 
                     $scope.selected = null;
 
@@ -112,10 +101,6 @@ angular.module('klasskrigApp')
 
                 $scope.firstPick = null;
             }
-
-
-
-            //updateImage(card);
         };
 
 
