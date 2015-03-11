@@ -11,26 +11,32 @@
 </div>
 
 <div class="row" ng-repeat="row in cards">
-  <div class="col-xs-3 card" ng-repeat="card in row">
+
+  <div class="flexbox">
     <div class="flip-container"
+         ng-repeat="card in row"
          ng-class="{'show': card.flipped}">
+
       <div class="flipper" ng-click="pick(card)">
         <div class="front">
           <img class="img-responsive img-rounded"
-               ng-src="{{bg_img}}"></img>
+               ng-src="{{bg_img}}"/>
         </div>
 
         <div class="back">
           <img class="img-responsive img-rounded"
                ng-class="{'match-border': card.matched}"
-               ng-src="{{card.small_img}}"></img>
+               ng-src="{{card.small_img}}"/>
         </div>
       </div>
+
+
     </div>
   </div>
+
 </div>
 
-<dic class="row">
+<div class="row">
   <div class="col-xs-12 img-rounded info-box">
     <h2 style="margin-top: 10pt;">
       {{infobox.title}}
@@ -44,3 +50,4 @@
     <p style="white-space: pre-wrap;">{{infobox.text}}</p>
   </div>
 </div>
+

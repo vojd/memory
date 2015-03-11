@@ -1,3 +1,17 @@
+.flexbox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1;
+}
+
+img {
+  outline: 0;
+  max-width: 100%;
+  height: auto;
+}
+
 .flip-container {
     -webkit-perspective: 1000;
     -moz-perspective: 1000;
@@ -5,6 +19,7 @@
     perspective: 1000;
 
     outline: 1px solid transparent;
+    position: relative;
 }
 
 
@@ -16,8 +31,11 @@
 }
 
 .flip-container, .front, .back {
+  /*
     width: 150px;
     height: 200px;
+  */
+  width: 22.6%;
 }
 
 .flipper {
@@ -40,15 +58,21 @@
 }
 
 .front, .back {
+  width: 100%;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
-    position: absolute;
+}
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .front {
-    z-index: 1;
+  z-index: 1;
+  width: 100%
 }
 
 .back {
